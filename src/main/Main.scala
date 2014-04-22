@@ -2,11 +2,26 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej6 ()
+		Ejemplos ej7 ()
 	}
 }
 
 object Ejemplos {
+
+	// Listas basadas en patrones regulares
+	def ej7() {
+		val telefono = """([^,]+) ([^,]+) ([^,]+) ([0-9]+)""".r
+		var lista = List("Chema Valera Reales 1234567",
+			"Javier Ruiz Torre 987654312",
+			"Pedro Mora Soria mi@mail.lo",
+			"Juan Jesús Ángel Alfredo Viallanueba 123987487")
+		for (contacto <- lista) {
+			contacto match {
+				case telefono(n, a1, a2, tel) => println("Llamar a " + n + " al " + tel)
+				case entry => println("No reconozco patrón")
+			} 
+		}
+	}
 
 	// Bucles sobre listas
 	def ej6() {
