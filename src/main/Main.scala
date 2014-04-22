@@ -2,11 +2,19 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej5 ()
+		Ejemplos ej6 ()
 	}
 }
 
 object Ejemplos {
+
+	// Bucles sobre listas
+	def ej6() {
+		val lista = List("Enero", "Febrero", "Marzo", "Abril", "Mayo", "junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+		for (mes <- lista) {
+			println(mes)
+		}
+	}
 
 	// Llamar a una función por nombre (y no por valor)
 	def ej5() {
