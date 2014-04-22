@@ -2,11 +2,22 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej9 ()
+		Ejemplos ej10 ()
 	}
 }
 
 object Ejemplos {
+
+	//Clousures
+	def ej10() {
+		var a = 10
+		var foo = (x: Int) => x + a
+		printf("a\t= %d\n",a)
+		printf("foo(5)\t= %d\n",foo(5))
+		printf("a\t= %d\n",a)
+		a = a + 1
+		printf("foo(5)\t= %d\n",foo(5))
+	}	
 
 	//Iterar sobre un mapa
 	def ej9() {
