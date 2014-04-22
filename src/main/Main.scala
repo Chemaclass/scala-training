@@ -2,11 +2,27 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej11 ()
+		Ejemplos ej12 ()
 	}
 }
 
 object Ejemplos {
+
+	// Tipos parametrizables
+	def ej12() {
+		class Almacen[param] {
+			var array: List[param] = Nil
+			def add(elemento: param) { array = elemento :: array }
+			def lista() {
+				array foreach { i => println(i.toString()) }
+			}
+		}
+		var almacen = new Almacen[Int]
+		almacen.add(1)
+		almacen.add(2)
+		almacen.add(3)
+		almacen.lista()
+	}
 
 	// Herencia 
 	def ej11() {
