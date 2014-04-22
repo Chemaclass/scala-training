@@ -2,11 +2,18 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej7 ()
+		Ejemplos ej8 ()
 	}
 }
 
 object Ejemplos {
+
+	// Iterar sobre un mapa de una lista
+	def ej8() {
+		var lista = List(1, 2, 3, 4, 5, 6)
+		val listaPor2 = lista map (_ * 2)
+		listaPor2 foreach { n => printf("El número es %d\n", n) }
+	}
 
 	// Listas basadas en patrones regulares
 	def ej7() {
@@ -19,7 +26,7 @@ object Ejemplos {
 			contacto match {
 				case telefono(n, a1, a2, tel) => println("Llamar a " + n + " al " + tel)
 				case entry => println("No reconozco patrón")
-			} 
+			}
 		}
 	}
 
