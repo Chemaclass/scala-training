@@ -2,11 +2,19 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej3 ()
+		Ejemplos ej4 ()
 	}
 }
 
 object Ejemplos {
+
+	// Atributos implícitos en las funciones
+	def ej4() {
+		def multiplica (a:Int) (implicit b: Int) = a * b
+		println(multiplica(5)(5))
+		implicit val b = 10
+		println(multiplica(5))
+	}
 
 	/**
 	 * Funciones currying
