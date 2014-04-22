@@ -2,22 +2,53 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej10 ()
+		Ejemplos ej11 ()
 	}
 }
 
 object Ejemplos {
 
+	// Herencia 
+	def ej11() {
+		class Objeto {
+			var x, y, ancho, alto: Int = 0
+		}
+		trait ObjetoGrafico {
+			def pintar() {
+				println("ObjetoGrafico.pintar()")
+			}
+			def mover()
+		}
+		class Pato extends Objeto with ObjetoGrafico {
+			override def mover() {
+				println("Pato.mover()")
+			}
+		}
+		class Nube extends Objeto with ObjetoGrafico {
+			override def mover() {
+				println("Nube.mover()")
+			}
+			override def pintar() {
+				println("Nube.pintar()")
+			}
+		}
+		val lista = List(new Pato(), new Nube())
+		for (obj <- lista) {
+			obj.pintar()
+			obj.mover()
+		}
+	}
+
 	//Clousures
 	def ej10() {
 		var a = 10
 		var foo = (x: Int) => x + a
-		printf("a\t= %d\n",a)
-		printf("foo(5)\t= %d\n",foo(5))
-		printf("a\t= %d\n",a)
+		printf("a\t= %d\n", a)
+		printf("foo(5)\t= %d\n", foo(5))
+		printf("a\t= %d\n", a)
 		a = a + 1
-		printf("foo(5)\t= %d\n",foo(5))
-	}	
+		printf("foo(5)\t= %d\n", foo(5))
+	}
 
 	//Iterar sobre un mapa
 	def ej9() {
