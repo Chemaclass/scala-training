@@ -11,7 +11,7 @@ object Ejemplos {
 	// Bucles sobre listas
 	def ej6() {
 		val lista = List("Enero", "Febrero", "Marzo", "Abril", "Mayo", "junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
-		for (mes <- lista) {
+		for (mes <- lista if !mes.contains("r")) {
 			println(mes)
 		}
 	}
