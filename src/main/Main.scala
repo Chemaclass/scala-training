@@ -12,15 +12,24 @@ object Ejemplos {
 	def ej2() {
 		def conectaServidor: Boolean = { return true }
 		def limpiaEspacio: Boolean = { return false }
-		val traza: PartialFunction[Boolean, String] = {
-			case true => "traza.true"
+		var hora = 10
+		val traza: PartialFunction[Boolean, String] = { case true => "traza.true" }
+		val error: PartialFunction[Boolean, String] = { case false => "error.false" }
+		var errorDeDia: PartialFunction[Boolean, String] = { case false => "errorDeDia.false" }
+		def elige(hora: Int): PartialFunction[Boolean, String] = {
+			if (hora == 10) {
+				return errorDeDia
+			} else {
+				return error
+			}
 		}
-		val error: PartialFunction[Boolean, String] = {
-			case false => "error.false"
-		}
-		val test = traza orElse error
+		var test = traza orElse elige(hora)
 		println(test(conectaServidor))
 		println(test(limpiaEspacio))
+		hora = 12
+		test = traza orElse elige(hora)
+		println(test(conectaServidor))
+		println(test(limpiaEspacio))		
 	}
 	//Crear una func a la mitad
 	def ej1(a: Int = 2, b: Int = 5) {
