@@ -2,11 +2,26 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej8 ()
+		Ejemplos ej9 ()
 	}
 }
 
 object Ejemplos {
+
+	//Iterar sobre un mapa
+	def ej9() {
+		val mapa = Map(
+			"Chema" -> "Desarrollador",
+			"Juan" -> "Publicista",
+			"Jesús" -> "Ingeniero",
+			"Ángel" -> "Matemático")
+		def pintarMapa(mapa: Map[String, String]) {
+			mapa foreach { i => printf("clave %s, valor %s\n", i._1, i._2) }
+		}
+		pintarMapa(mapa)
+		val mapaMayus = mapa map { i => (i._1.toUpperCase(), i._2.toUpperCase()) }
+		pintarMapa(mapaMayus)
+	}
 
 	// Iterar sobre un mapa de una lista
 	def ej8() {
