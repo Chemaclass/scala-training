@@ -2,15 +2,29 @@ package main
 
 object Main {
 	def main(args: Array[String]) {
-		Ejemplos ej4 ()
+		Ejemplos ej5 ()
 	}
 }
 
 object Ejemplos {
 
+	// Llamar a una función por nombre (y no por valor)
+	def ej5() {
+		def dameNombre(paramPorNombre: => Boolean)(cuerpo: => Unit) {
+			if (paramPorNombre) {
+				cuerpo
+			} else {
+				println("retornamos otra cosa")
+			}
+		}
+		dameNombre((7 * 3 % 2) == 0) {
+			println("es un resultado par")
+		}
+	}
+
 	// Atributos implícitos en las funciones
 	def ej4() {
-		def multiplica (a:Int) (implicit b: Int) = a * b
+		def multiplica(a: Int)(implicit b: Int) = a * b
 		println(multiplica(5)(5))
 		implicit val b = 10
 		println(multiplica(5))
